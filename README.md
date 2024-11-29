@@ -1,8 +1,7 @@
 # Admissions Alert AI
 
-Admissions Alert AI generates a personalized newsfeed with the latest updates on university admissions, application deadlines, and admission test schedules for major Pakistan universities. It uses Generative AI to tailor the newsfeed to a student's academic level and interests, ensuring they never miss a critical deadline or opportunity.
+Admissions Alert AI provides the latest admission updates, including current openings, upcoming admission schedules, and important dates for major universities in Pakistan. It ensures information is up-to-date, including exact dates and original test names of the universities.
 
 ## User Journeys
 
-1. [Enter Academic Details](docs/journeys/enter-academic-details.md) - Provide your academic level and interests.
-2. [Generate Personalized Newsfeed](docs/journeys/generate-newsfeed.md) - Receive a tailored newsfeed based on your inputs.
+1. [View Admissions Updates](docs/journeys/view-admissions-updates.md) - Browse the latest admissions information.
