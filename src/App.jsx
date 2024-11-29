@@ -14,12 +14,17 @@ function App() {
 Academic Level: ${academicLevel()}
 Interests: ${interests()}
 
-Provide the output in JSON format as an array of news items, each with the following structure:
+Provide the output in JSON format with the following structure:
+
 {
-  "title": "Title of the news item",
-  "summary": "Short summary of the news item",
-  "link": "URL to more information",
-  "date": "Date of the event or deadline"
+  "newsfeed": [
+    {
+      "title": "Title of the news item",
+      "summary": "Short summary of the news item",
+      "link": "URL to more information",
+      "date": "Date of the event or deadline"
+    }
+  ]
 }`;
 
     try {
@@ -28,7 +33,9 @@ Provide the output in JSON format as an array of news items, each with the follo
         response_type: 'json'
       });
 
-      if (Array.isArray(result)) {
+      if (result && Array.isArray(result.newsfeed)) {
+        setNewsfeed(result.newsfeed);
+      } else if (result && Array.isArray(result)) {
         setNewsfeed(result);
       } else {
         console.error('Invalid response format:', result);
@@ -67,8 +74,9 @@ Provide the output in JSON format as an array of news items, each with the follo
           </div>
           <button
             onClick={handleGenerateNewsfeed}
-            class={`w-full py-3 mt-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer ${loading() ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
+            class={`w-full py-3 mt-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer ${
+              loading() ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
             disabled={loading()}
           >
             {loading() ? 'Generating Newsfeed...' : 'Generate Newsfeed'}
